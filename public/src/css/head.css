@@ -1,0 +1,24 @@
+.navbar{
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.btn{
+    margin-right: 20px;
+    width: 230px;
+    height: 40px;
+}
+
+.navbar-brand{
+    height: 70px;
+    width: 120px;
+    margin-left: 25px;
+}
+.img-index {
+    text-decoration: none;
+    color: initial;
+}

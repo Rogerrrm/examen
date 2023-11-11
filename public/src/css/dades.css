@@ -1,0 +1,67 @@
+.body-dades {
+    background: url(../../img/img-dades.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.card {
+    margin-top: 80px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border: #28a745;
+    border-radius: 20px;
+}
+
+.card-header {
+    background-color: #28a745;
+    border-radius: 20px;
+}
+
+.card-title {
+    margin: 0;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    background-color: #28a745;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #28a745;
+}
+
+.password-icon {
+    float: right;
+    position: relative;
+    margin: -25px 10px 0 0;
+    cursor: pointer;
+}
+
+.body-reserva {
+    background-color: #f8f9fa;
+}
+
+.container-1 {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.alert {
+    margin-top: 20px;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.btn {
+    margin-top: 10px;
+}
