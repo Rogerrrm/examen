@@ -2,7 +2,7 @@
 
 function ctrlIndex($request, $response, $container){
 
-    $taskModel = $container->apf();
+    $taskModel = $container->examen();
 
     // Get user information from the session
     $user = $request->get("SESSION", "user");
@@ -11,11 +11,9 @@ function ctrlIndex($request, $response, $container){
     $apfs = $taskModel->getAll($user["id_user"]);
 
     // Fetch information about available apartments
-    $apart = $taskModel->getapartamento();
 
     // Set data for the response
     $response->set("apfs", $apfs);
-    $response->set("apart", $apart);
 
     // Set the template for rendering
     $response->setTemplate("index.php");

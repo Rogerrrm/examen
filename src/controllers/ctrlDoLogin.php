@@ -1,27 +1,20 @@
 <?php
 
 function ctrlDoLogin($request, $response, $container) {
-    // Get user-provided username and password from the request
-    $user = $request->get(INPUT_POST, "user");
-    $pass = $request->get(INPUT_POST, "pass");
+   
 
-    // Access the user model from the container
-    $userModel = $container->users();
+    // Recibir datos del formulario
+    $usuario = $_POST['usuario'];
+    $clave = $_POST['clave'];
 
-    // Attempt to log in the user by verifying the username and password
-    $userModel = $userModel->login($user, $pass);
-
-    if ($userModel) {
-        // If login is successful, set the user's session and logged status
-        $response->setSession("user", $userModel);
-        $response->setSession("logged", true);
-
-        // Redirect to a specific page (e.g., user's profile)
-        $response->redirect("location: index.php?r=dades");
+    // Validar la identificación (aquí debes implementar tu lógica de validación)
+    if ($usuario == 'usuario_demo' && $clave == 'clave_demo') {
+        echo "¡Identificación exitosa!";
     } else {
-        // If login fails, redirect back to the login page
-        $response->redirect("location: index.php?r=login");
+        echo "Identificación fallida. Por favor, verifique sus credenciales.";
     }
+
+
 
     return $response;
 }

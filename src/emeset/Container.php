@@ -32,9 +32,9 @@ class Container
         );
     }
 
-    public function apf()
+    public function examen()
     {
-        return new \Daw\apf($this->sql);
+        return new \Daw\examen($this->sql);
     }
 
     public function users()

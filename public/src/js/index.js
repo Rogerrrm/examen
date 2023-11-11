@@ -6,3 +6,7 @@ $(document).ready(function () {
         interval: 5000
     });
 });
+
+$(document).ready(function() {
+    $('#miTabla').DataTable();
+});

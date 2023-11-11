@@ -7,12 +7,12 @@ $config = [
     "db" => [
         "user" => "root",
         "pass" => "1234",
-        "db" => "apf",
+        "db" => "examen",
         "host" => "localhost"
     ],
 ];
 
 
-include "../src/models/apf.php";
+include "../src/models/examen.php";
 include "../src/models/Db.php";
 include "../src/models/Users.php";
