@@ -46,8 +46,6 @@ if ($r == "") {
   $response = ctrlDoRegister($request, $response, $container); 
 } elseif ($r == "dades") {
   $response = ctrldades($request, $response, $container); 
-} elseif ($r == "validar") {
-  $response = ctrlvalidar($request, $response, $container); 
 } elseif ($r == "listado") {
   $response = ctrllistado($request, $response, $container); 
 } else {

@@ -19,9 +19,6 @@
     <div class="modal-dialog text-center">
         <div class="col-sm-8 main-section">
             <div class="modal-content">
-                <div class="col-12 user-img">
-                    <img src="img/logo.jpg"/>
-                </div>
                 <form action="index.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="r" value="doregister">
                 <a class="iniciarsession">Registrarse</a><br><br>
@@ -35,11 +32,11 @@
                   </div>
                   <div class="form-group">
                     <label for="inputUsuario">Data de naixement:</label>
-                    <input name="Datanaixement" type="text" class="form-control" id="inputUsuario" placeholder="Tu fecha de nacimiento" required>
+                    <input name="Datanaixement" type="text" class="form-control" id="inputData" placeholder="Tu fecha de nacimiento" required>
                   </div>
                   <div class="form-group">
                     <label for="inputUsuario">Adreca(Carrer, número, ciutat i codi postal)</label>
-                    <input name="adreca" type="text" class="form-control" id="inputUsuario" placeholder="Tu direccion" required>
+                    <input name="adreca" type="text" class="form-control" id="inputAdreca" placeholder="Tu direccion" required>
                   </div>
                   <div class="form-group">
                     <label for="resguardo">Resguard del pagament (PDF o imatge)</label>

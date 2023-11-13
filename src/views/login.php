@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Formulario de Acceso</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
     <h2>Acceso a la Página de Consulta</h2>
@@ -12,7 +13,7 @@
         <label for="codigoAcceso">Código de Acceso:</label>
         <input type="password" id="codigoAcceso" name="codigoAcceso" required>
         <button type="button" id="btnAcceder">Acceder</button>
-        <a href="index.php">Volver</button>
+        <a href="index.php" class="btn btn-success" >Volver</a>
     </form>
 
     <script>
@@ -21,12 +22,12 @@
                 var codigoAcceso = $("#codigoAcceso").val();
 
                 $.ajax({
-                    url: "src/controllers/ctrlvalidar.php",
+                    url: "ctrlvalidar.php",
                     type: "POST",
                     data: { codigoAcceso: codigoAcceso },
                     success: function (response) {
                         if (response === "true") {
-                            window.location.href = "listado.php";
+                            window.location.href = "index.php?r=listado";
                         } else {
                             alert("Código de acceso incorrecto. Inténtalo de nuevo.");
                         }
@@ -36,7 +37,13 @@
                     }
                 });
             });
+
+            // Evitar el envío del formulario por defecto
+            $("#formAcceso").on("submit", function (event) {
+                event.preventDefault();
+            });
         });
     </script>
 </body>
 </html>
+

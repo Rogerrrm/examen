@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+// Verificar si l'usuari està identificat
+if (!isset($_SESSION['identified']) || $_SESSION['identified'] !== true) {
+    // Redirigeix a la pàgina de login si l'usuari no està identificat
+    header('Location: index.php?r=login');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,6 +17,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 
 </head>
@@ -58,7 +69,7 @@
         </tbody>
     </table>
 
-    <a href="index.php">volver</a>
+    <a href="index.php" class="btn btn-success" >Volver</a>
 
     <script>
         $(document).ready(function () {

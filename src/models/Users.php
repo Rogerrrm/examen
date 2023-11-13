@@ -32,6 +32,18 @@ class Users {
             return false;
         }
     }
+    public function usuariolinea($usuariolinea, $apellido){
+        $stm = $this->sql->prepare('SELECT * FROM register WHERE nombre = :nom;');
+        $stm->execute([':nom' => $usuariolinea]);
+        $result = $stm->fetch(\PDO::FETCH_ASSOC);
+    
+        if(is_array($result) && $result["apellidos"] == $apellido){
+            return $result;
+        } else {
+            return false;
+        }
+    }
+    
 
     public function register($Nom, $Cognoms, $Datanaixement, $adreca) {
         $stm = $this->sql->prepare('INSERT INTO register (nombre, apellidos, fecha_nacimiento, direccion) VALUES (:Nom, :Cognom, :Datanaixement, :adreca);');
