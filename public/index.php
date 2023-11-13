@@ -7,6 +7,9 @@ include "../src/controllers/ctrlDoLogin.php";
 include "../src/controllers/ctrlDoLogout.php";
 include "../src/controllers/ctrlRegister.php";
 include "../src/controllers/ctrlDoRegister.php";
+include "../src/controllers/ctrldades.php";
+include "../src/controllers/ctrlvalidar.php";
+include "../src/controllers/ctrllistado.php";
 
 
 // Include middleware files
@@ -41,6 +44,12 @@ if ($r == "") {
   $response = ctrlDoLogout($request, $response, $container);
 } elseif ($r == "doregister") {
   $response = ctrlDoRegister($request, $response, $container); 
+} elseif ($r == "dades") {
+  $response = ctrldades($request, $response, $container); 
+} elseif ($r == "validar") {
+  $response = ctrlvalidar($request, $response, $container); 
+} elseif ($r == "listado") {
+  $response = ctrllistado($request, $response, $container); 
 } else {
   echo "No existe la ruta";
 }

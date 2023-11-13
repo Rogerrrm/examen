@@ -2,23 +2,41 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Validación de Identificación</title>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="src/js/script.js"></script>
-</head>script.js
+    <title>Formulario de Acceso</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
 <body>
-    <h2>Formulario de Validación de Identificación</h2>
-    <form id="formIdentificacion">
-        <label for="usuario">Usuario:</label>
-        <input type="text" id="usuario" name="usuario" required>
-
-        <label for="clave">Contraseña:</label>
-        <input type="password" id="clave" name="clave" required>
-
-        <button type="button" onclick="validarIdentificacion()">Enviar</button>
+    <h2>Acceso a la Página de Consulta</h2>
+    <form id="formAcceso" action="index.php" method="post">
+        <input type="hidden" name="r" value="validar">
+        <label for="codigoAcceso">Código de Acceso:</label>
+        <input type="password" id="codigoAcceso" name="codigoAcceso" required>
+        <button type="button" id="btnAcceder">Acceder</button>
+        <a href="index.php">Volver</button>
     </form>
 
-    <div id="resultado"></div>
+    <script>
+        $(document).ready(function () {
+            $("#btnAcceder").on("click", function () {
+                var codigoAcceso = $("#codigoAcceso").val();
+
+                $.ajax({
+                    url: "src/controllers/ctrlvalidar.php",
+                    type: "POST",
+                    data: { codigoAcceso: codigoAcceso },
+                    success: function (response) {
+                        if (response === "true") {
+                            window.location.href = "listado.php";
+                        } else {
+                            alert("Código de acceso incorrecto. Inténtalo de nuevo.");
+                        }
+                    },
+                    error: function () {
+                        alert("Error en la validación del código de acceso.");
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

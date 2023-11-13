@@ -15,57 +15,46 @@
     <link rel="icon" type="image/png" href="img/logo.jpg">
 
 </head>
-<body class="body-register">
+<body class="body-login">
     <div class="modal-dialog text-center">
         <div class="col-sm-8 main-section">
             <div class="modal-content">
                 <div class="col-12 user-img">
                     <img src="img/logo.jpg"/>
                 </div>
-                <form action="index.php" method="post">
+                <form action="index.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="r" value="doregister">
-                <a class="iniciarsession">REGISTRARSE</a><br><br>
+                <a class="iniciarsession">Registrarse</a><br><br>
                   <div class="form-group">
-                    <label for="inputUsuario">Usuario</label>
-                    <input name="user" type="text" class="form-control" id="inputUsuario" placeholder="Tu usuario" required>
+                    <label for="inputUsuario">Nom</label>
+                    <input name="Nom" type="text" class="form-control" id="inputUsuario" placeholder="Tu usuario" required>
                   </div>
-
                   <div class="form-group">
-                    <label for="inputSurname">Apellido</label>
-                    <input name="surname" type="text" class="form-control" id="inputSurname" placeholder="Tu apellido">
+                    <label for="inputClave">Cognoms</label>
+                    <input name="Cognoms" type="text" class="form-control" id="inputClave" placeholder="Tu apellido" required>
                   </div>
-
                   <div class="form-group">
-                    <label for="inputClave">Contraseña</label>
-                    <input name="pass" type="password" class="form-control" id="inputClave" placeholder="Tu contraseña" required>
+                    <label for="inputUsuario">Data de naixement:</label>
+                    <input name="Datanaixement" type="text" class="form-control" id="inputUsuario" placeholder="Tu fecha de nacimiento" required>
                   </div>
-
                   <div class="form-group">
-                    <label for="inputEmail">Email</label>
-                    <input name="email" type="email" class="form-control" id="inputEmail" placeholder="Tu email" required>
+                    <label for="inputUsuario">Adreca(Carrer, número, ciutat i codi postal)</label>
+                    <input name="adreca" type="text" class="form-control" id="inputUsuario" placeholder="Tu direccion" required>
                   </div>
-
                   <div class="form-group">
-                    <label for="inputPhone">Telefono</label>
-                    <input name="phone" type="tel" class="form-control" id="inputPhone" placeholder="Tu telefono">
+                    <label for="resguardo">Resguard del pagament (PDF o imatge)</label>
+                    <input name="resguardo" type="file" accept=".pdf, .jpg, .jpeg, .png" class="form-control-file" id="inputDocumento" required>
                   </div>
-
-                  <div class="form-group">
-                    <label for="inputTarjeta">Tarjeta de Credito</label>
-                    <input name="card_number" type="text" class="form-control" id="inputTarjeta" placeholder="Tu tarjeta de credito" required>
-                  </div>
-                    
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Registrarse</button>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Login</button>
                 </form>
                 
                 <div class="col-12 forgot">
-                    <a href="index.php?r=registergestor" class="registro">Registrarse como gestor.</a><br>
-                    <a href="index.php?r=login" class="registro">Login.</a><br>
+                    <a href="index.php?r=dades" class="registro">Registrarse.</a><br>
                     <a href="index.php">Volver a la pàgina principal.</a>
                     
                 </div>
                 
-		        </div> 
+		        </div>
             </div>
         </div>
     </div>

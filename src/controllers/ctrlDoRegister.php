@@ -3,24 +3,24 @@
 function ctrlDoRegister($request, $response, $container) {
     $taskModel = $container->users();
     
-    // Retrieve data from the POST form
-    $user = $request->get(INPUT_POST, "user");
-    $surname = $request->get(INPUT_POST, "surname");
-    $pass = $request->get(INPUT_POST, "pass");
-    $email = $request->get(INPUT_POST, "email");
-    $phone = $request->get(INPUT_POST, "phone");
-    $card_number = $request->get(INPUT_POST, "card_number");
-
-    // Validate and escape the form data before using it
-
-    // Call the model to register the user
-    $taskModel->register($user, $surname, $pass, $email, $phone, $card_number);
-
-    // Handle errors and redirection
-    // Add a confirmation message in case of success
-
-    // Redirect the user to the login page after registration
-    $response->redirect("location: index.php?r=login");
+    $Nom = $request->get(INPUT_POST, "Nom");
+    $Cognoms = $request->get(INPUT_POST, "Cognoms");
+    $Datanaixement = $request->get(INPUT_POST, "Datanaixement");
+    $adreca = $request->get(INPUT_POST, "adreca");
     
+    $resguardo_name = $_FILES['resguardo']['name'];
+    $resguardo_tmp_name = $_FILES['resguardo']['tmp_name'];
+    $resguardo_path = "img/" . $resguardo_name;
+    move_uploaded_file($resguardo_tmp_name, $resguardo_path);
+
+    $codigoRegistro = $taskModel->register($Nom, $Cognoms, $Datanaixement, $adreca);
+
+    if ($codigoRegistro) {
+        $response->redirect("dades.php?codigo=" . $codigoRegistro['codigo'] . "&nombre=" . urlencode($codigoRegistro['nombre']) . "&apellidos=" . urlencode($codigoRegistro['apellidos']));
+    } else {
+        $response->redirect("index.php?r=login");
+    }
+
     return $response;
 }
+

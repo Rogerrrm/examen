@@ -22,19 +22,19 @@ class Users {
     }
 
 
-    public function login($user, $pass){
-        $stm = $this->sql->prepare('select * from user where user=:user;');
-        $stm->execute([':user' => $user]);
+    public function login($nom, $apellido){
+        $stm = $this->sql->prepare('select * from register where nombre = :nom;');
+        $stm->execute([':nom' => $nom]);
         $result = $stm->fetch(\PDO::FETCH_ASSOC);
-        if(is_array($result) && $result["pass"] == $pass){
+        if(is_array($result) && $result["apellidos"] == $apellido){
             return $result;
         } else {
             return false;
         }
     }
 
-    public function register($user, $surname, $pass, $email, $phone, $card_number) {
-        $stm = $this->sql->prepare('INSERT INTO user (user, surname, pass, email, phone, card_number) VALUES (:user, :surname, :pass, :email, :phone, :card_number);');
-        $result = $stm->execute(['user' => $user, 'surname' => $surname, 'pass' => $pass, 'email' => $email, 'phone' => $phone, 'card_number' => $card_number]);
+    public function register($Nom, $Cognoms, $Datanaixement, $adreca) {
+        $stm = $this->sql->prepare('INSERT INTO register (nombre, apellidos, fecha_nacimiento, direccion) VALUES (:Nom, :Cognom, :Datanaixement, :adreca);');
+        $result = $stm->execute([':Nom' => $Nom, ':Cognom' => $Cognoms,':Datanaixement' => $Datanaixement, ':adreca' => $adreca,]);
     }
 }
