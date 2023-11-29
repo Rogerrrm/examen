@@ -11,7 +11,7 @@ class Users {
     }
 
     public function getAll(){
-        $stm = $this->sql->prepare("select * from user");
+        $stm = $this->sql->prepare("select * from register");
         $stm->execute();
         
         $tasks = array();
@@ -43,7 +43,28 @@ class Users {
             return false;
         }
     }
-    
+    public function dades() {
+        $stm = $this->sql->prepare('SELECT * FROM register ORDER BY id DESC LIMIT 1');
+        $stm->execute();
+        
+        $tasks = array();
+        while ($task = $stm->fetch(\PDO::FETCH_ASSOC)) {
+            $tasks[] = $task;
+        }
+        return $tasks;
+    }
+
+    public function listado() {
+        $stm = $this->sql->prepare('SELECT * FROM register');
+        $stm->execute();
+        
+        $tasks = array();
+        while ($task = $stm->fetch(\PDO::FETCH_ASSOC)) {
+            $tasks[] = $task;
+        }
+        return $tasks;
+    }
+
 
     public function register($Nom, $Cognoms, $Datanaixement, $adreca) {
         $stm = $this->sql->prepare('INSERT INTO register (nombre, apellidos, fecha_nacimiento, direccion) VALUES (:Nom, :Cognom, :Datanaixement, :adreca);');

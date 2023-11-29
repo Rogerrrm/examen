@@ -1,9 +1,13 @@
 <?php
 
-function ctrllistado($request, $response, $container){
+function ctrllistado($request, $response, $container) {
+    
+    $taskModel = $container->users();
 
-    // Set the template to render the login form
+    $codigoRegistro = $taskModel->listado();
+
+    $response->set("codigoRegistro", $codigoRegistro);
     $response->setTemplate("listado.php");
 
-    return $response;    
+    return $response;
 }

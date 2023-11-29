@@ -47,22 +47,13 @@
 <body>
     <div class="container">
         <h2>Confirmación de Registro</h2>
-        <?php
-        // Obtener los datos de la URL
-        $codigoRegistro = isset($_GET['codigo']) ? $_GET['codigo'] : '';
-        $nombre = isset($_GET['nombre']) ? $_GET['nombre'] : '';
-        $apellidos = isset($_GET['apellidos']) ? $_GET['apellidos'] : '';
-        $resguardoPath = isset($_GET['resguardo']) ? $_GET['resguardo'] : '';
-
         
-
-        // Mostrar los datos de confirmación
-        echo "<p>¡Registro exitoso!</p>";
-        echo "<p>Código de registro: $codigoRegistro</p>";
-        echo "<p>Nombre: $nombre</p>";
-        echo "<p>Apellidos: $apellidos</p>";
-        echo "<p>Resguardo: $resguardoPath</p>";
-        ?>
+            <p>¡Registro exitoso!</p>
+            <p>Nombre: <?php echo $codigoRegistro[0]['nombre']; ?></p>
+            <p>Apellidos: <?php echo $codigoRegistro[0]['apellidos']; ?></p>
+            <p>Fecha de Nacimiento: <?php echo $codigoRegistro[0]['fecha_nacimiento']; ?></p>
+            <p>direccion: <?php echo $codigoRegistro[0]['direccion']; ?></p>
+        
 
         <p>¡Gracias por registrarte! Puedes <a href="index.php">volver</a> a la página principal.</p>
     </div>

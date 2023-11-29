@@ -11,7 +11,7 @@ class examen {
     }
 
     public function getAll($userId){
-        $stm = $this->sql->prepare("select user,pass from user where id_user = :id_user;");
+        $stm = $this->sql->prepare("select nombre from register where id = :id_user;");
         $stm->execute([':id_user' => $userId]);
         
         $tasks = array();

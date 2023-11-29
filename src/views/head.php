@@ -11,6 +11,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a href="index.php?r=login" class="btn btn-success">Autenticarse</a>
+        <a href="index.php?r=dades" class="btn btn-success">Dades</a>
         <a href="index.php?r=register" class="btn btn-success">Formulario inscripcion</a>
     </div>
 </nav>
